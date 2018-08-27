@@ -22,8 +22,9 @@ class Simon
     require_sequence
     until @game_over
       round_success_message
+      show_sequence
+      require_sequence
       @sequence_length += 1
-      @game_over = true
     end
   end
 
@@ -50,7 +51,7 @@ class Simon
   end
 
   def round_success_message
-
+    puts "Congrats, you won this round."
   end
 
   def game_over_message
@@ -64,6 +65,7 @@ class Simon
   end
 end
 
-if __FILE__ = $PROGRAM_NAME
-
+if __FILE__ == $PROGRAM_NAME
+  game = Simon.new
+  game.play
 end
