@@ -1,0 +1,2 @@
+alias ber="bundle exec rspec --color"
+alias bi="bundle install"
