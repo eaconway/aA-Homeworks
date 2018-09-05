@@ -85,6 +85,9 @@ class Playwright
     data.map { |datum| Playwright.new(datum) }
   end
 
+  attr_accessor :name, :birth_year
+  attr_reader :id
+
   def initialize(options)
     @id = options['id']
     @name = options['name']

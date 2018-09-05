@@ -43,7 +43,7 @@ class Board
         @cups[start_pos] << stones.shift
       end
     end
-    start_pos += 1
+    start_pos = (start_pos + 1) % (@cups.length)
 
     render
     next_turn(start_pos, current_player_name)
@@ -51,6 +51,8 @@ class Board
 
   def next_turn(ending_cup_idx, current_player_name)
     # helper method to determine whether #make_move returns :switch, :prompt, or ending_cup_idx
+    puts ending_cup_idx
+    puts @cups[ending_cup_idx]
     if @cups[ending_cup_idx].empty?
       :switch
     elsif ending_cup_idx == (current_player_name == p1 ? @p1_store : @p2_store)
